@@ -1,5 +1,6 @@
 import './footer.css';
 import ElementCreator from "../../util/element-creator"
+import View from '../view';
 
 
 const CssClasses = {
@@ -7,23 +8,16 @@ const CssClasses = {
 };
 const TEXT = 'SPA example app';
 
-export default class FooterView  {
+export default class FooterView extends View {
     constructor(){
-        this.elementCreator = this.createView();
+        const params = {
+            tag:'footer',
+            classNames: [CssClasses.FOOTER],
+            textContent: TEXT,
+            callback: null,  
+        }
+        super(params);
        }
    
-       getHTMLElement(){
-           return this.elementCreator.getElement();
-       }
-   
-       createView(){
-           const params ={
-               tag:'footer',
-               classNames :[CssClasses.FOOTER],
-               textContent :TEXT,
-               callback:null,
-           }
-           const createElement = new ElementCreator(params);
-           return createElement;
-       }
+        
 }

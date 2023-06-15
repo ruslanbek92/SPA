@@ -29,6 +29,13 @@ export default class ElementCreator {
        return this.element;
    }
 
+   addInnerElement(element){
+    if (element instanceof ElementCreator) {
+        this.element.append(element.getElement());
+    }else{
+        this.element.append(element);
+    }
+   }
    /**
     * @param {HTMLElement | ElementCreator} element
     */
